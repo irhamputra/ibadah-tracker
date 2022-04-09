@@ -1,13 +1,14 @@
-import * as React from "react";
 import { useFormik } from "formik";
-import listSholat from "../utils/listSholat";
-import { SholatTime } from "../typings";
+import * as React from "react";
+
+import { SholatTime } from "@/typings/index";
+import listSholat from "@/utils/listSholat";
 
 interface FormProps {
-  children?: React.ReactNode;
+  date: Date;
 }
 
-const Form: React.FC<FormProps> = () => {
+const FormSholat: React.FC<FormProps> = () => {
   const { values, handleChange, submitForm } = useFormik({
     initialValues: listSholat.reduce((acc, curr) => {
       return {
@@ -43,4 +44,4 @@ const Form: React.FC<FormProps> = () => {
   );
 };
 
-export default Form;
+export default FormSholat;

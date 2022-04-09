@@ -1,8 +1,9 @@
+import { format } from "date-fns";
 import type { NextPage } from "next";
 import { useState } from "react";
 import Calendar from "react-calendar";
-import { format } from "date-fns";
-import FormSholat from "../components/Form";
+
+import FormSholat from "@/components/FormSholat";
 
 const Home: NextPage = () => {
   const [value, onChange] = useState(new Date());
@@ -20,8 +21,8 @@ const Home: NextPage = () => {
         value={value}
         locale="id-ID"
         minDate={new Date()}
-        onClickDay={(value) => {
-          setDate(value);
+        onClickDay={(date) => {
+          setDate(date);
           setShowDetail(true);
         }}
       />
@@ -30,7 +31,7 @@ const Home: NextPage = () => {
         <div className="mt-3">
           <div className="text-center">{format(date, "dd MMMM yyyy")}</div>
           <div>Detail Ibadah</div>
-          <FormSholat />
+          <FormSholat date={date} />
         </div>
       )}
     </div>
