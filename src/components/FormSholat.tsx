@@ -25,7 +25,10 @@ const FormSholat: React.FC<FormProps> = () => {
     <div className="form-control">
       {listSholat.map((value) => {
         return (
-          <label key={key} className="flex items-center cursor-pointer">
+          <label
+            key={`${key}-${value.name}`}
+            className="flex items-center cursor-pointer"
+          >
             <input
               type="checkbox"
               name={value.name}
