@@ -23,6 +23,7 @@ const FormSholat: React.FC<FormProps> = () => {
 
   return (
     <div className="form-control">
+      <div>Jadwal Sholat</div>
       {listSholat.map((value) => {
         return (
           <label
